@@ -1,0 +1,993 @@
+/* ================================
+   ROOT
+================================ */
+
+.landing {
+    --black: #111111;
+    --black-soft: #1d1d1d;
+    --dark: #292929;
+    --gray-900: #3b3b3b;
+    --gray-700: #686868;
+    --gray-500: #919191;
+    --gray-300: #c9c9c9;
+    --gray-200: #dedbd5;
+    --gray-100: #eeeae3;
+    --off-white: #f5f2ec;
+    --white: #ffffff;
+
+    width: 100%;
+    min-height: 100vh;
+    background: var(--off-white);
+    color: var(--black);
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* ================================
+   GLOBAL
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ================================
+   NAVBAR
+================================ */
+
+.navbar {
+    width: min(1900px, calc(100% - 6vw));
+    height: 80px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.logo span {
+    font-weight: 400;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+
+    font-size: 13px;
+    color: var(--gray-700);
+}
+
+.navLinks a {
+    transition: color 180ms ease;
+}
+
+.navLinks a:hover {
+    color: var(--black);
+}
+
+.navActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.btn {
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    padding: 10px 17px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btnDark {
+    background: var(--black);
+    color: var(--white);
+}
+
+.btnDark:hover {
+    background: var(--dark);
+}
+
+.btnGhost {
+    background: transparent;
+    color: var(--black);
+}
+
+.btnGhost:hover {
+    background: rgba(17, 17, 17, 0.05);
+}
+
+.btnOutline {
+    background: transparent;
+    border-color: var(--gray-300);
+    color: var(--black);
+}
+
+.btnOutline:hover {
+    background: var(--white);
+    border-color: var(--gray-500);
+}
+
+.btnLarge {
+    min-height: 50px;
+    padding: 0 20px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+}
+
+.btnLight {
+    background: var(--white);
+    color: var(--black);
+}
+
+.btnLight:hover {
+    background: var(--off-white);
+}
+
+.arrow {
+    margin-left: 8px;
+    font-size: 17px;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    width: min(1600px, calc(100% - 12vw));
+
+    min-height: 680px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+
+    gap: clamp(70px, 8vw, 140px);
+
+    padding: 90px 0 110px;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow,
+.sectionEyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+
+    color: var(--gray-700);
+}
+
+.eyebrowDot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--black);
+}
+
+.hero h1 {
+    max-width: 650px;
+
+    margin: 22px 0 24px;
+
+    font-size: clamp(48px, 6vw, 78px);
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+    font-weight: 750;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--gray-500);
+}
+
+.heroDescription {
+    max-width: 540px;
+
+    margin: 0;
+
+    color: var(--gray-700);
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.heroActions {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 32px;
+}
+
+.heroMeta {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    margin-top: 55px;
+}
+
+.heroMeta div:not(.metaDivider) {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.heroMeta strong {
+    font-size: 13px;
+}
+
+.heroMeta span {
+    color: var(--gray-500);
+    font-size: 11px;
+}
+
+.metaDivider {
+    width: 1px;
+    height: 30px;
+
+    background: var(--gray-300);
+}
+
+
+/* ================================
+   HERO VISUAL
+================================ */
+
+.heroVisual {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 500px;
+}
+
+.visualGlow {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    filter: blur(50px);
+}
+
+.resumeCard {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 430px);
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid rgba(17, 17, 17, 0.12);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 80px rgba(17, 17, 17, 0.12),
+        0 8px 20px rgba(17, 17, 17, 0.05);
+
+    backdrop-filter: blur(18px);
+
+    transform: rotate(2deg);
+
+    transition: transform 300ms ease;
+}
+
+.resumeCard:hover {
+    transform: rotate(0deg) translateY(-5px);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.cardLabel,
+.matchLabel {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+
+    color: var(--gray-500);
+}
+
+.cardHeader h3 {
+    margin: 0;
+
+    font-size: 21px;
+    letter-spacing: -0.8px;
+}
+
+.statusDot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--black);
+
+    box-shadow: 0 0 0 5px var(--gray-200);
+}
+
+
+/* ================================
+   PROFILE SCORE
+================================ */
+
+.profileScore {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 28px 0;
+}
+
+.scoreCircle {
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            var(--white) 58%,
+            transparent 59%),
+        conic-gradient(var(--black) 0deg 313deg,
+            var(--gray-200) 313deg 360deg);
+
+    flex-shrink: 0;
+}
+
+.scoreCircle span {
+    font-size: 25px;
+    font-weight: 750;
+    letter-spacing: -1px;
+}
+
+.scoreCircle small {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 7px;
+}
+
+.scoreTitle {
+    margin: 0 0 5px;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.scoreText {
+    margin: 0;
+
+    font-size: 11px;
+    color: var(--gray-500);
+}
+
+
+/* ================================
+   SKILLS
+================================ */
+
+.skillSection {
+    padding: 20px 0;
+
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.skillHeader {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.skillHeader span:last-child {
+    color: var(--gray-500);
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.skills span {
+    padding: 7px 10px;
+
+    border-radius: 7px;
+
+    background: var(--off-white);
+
+    font-size: 10px;
+    color: var(--gray-700);
+}
+
+
+/* ================================
+   MATCH CARD
+================================ */
+
+.matchCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 18px;
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: var(--black);
+    color: var(--white);
+}
+
+.matchCard strong {
+    display: block;
+
+    font-size: 13px;
+}
+
+.matchLabel {
+    margin-bottom: 5px;
+    color: var(--gray-300);
+}
+
+.matchPercentage {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* ================================
+   HOW IT WORKS
+================================ */
+
+.howSection {
+    width: min(1600px, calc(100% - 12vw));
+
+    margin: 0 auto;
+
+    padding: 120px 0;
+}
+
+.sectionHeading {
+    max-width: 650px;
+}
+
+.sectionEyebrow {
+    margin-bottom: 18px;
+}
+
+.sectionHeading h2 {
+    margin: 0;
+
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1;
+
+    letter-spacing: -2.5px;
+}
+
+.sectionHeading h2 span {
+    color: var(--gray-500);
+}
+
+.sectionHeading>p {
+    max-width: 560px;
+
+    margin: 20px 0 0;
+
+    color: var(--gray-700);
+
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 65px;
+
+    border-top: 1px solid var(--gray-300);
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.stepCard {
+    position: relative;
+
+    min-height: 250px;
+
+    padding: 30px;
+
+    border-right: 1px solid var(--gray-300);
+
+    transition: background 200ms ease;
+}
+
+.stepCard:last-child {
+    border-right: 0;
+}
+
+.stepCard:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.stepNumber {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-500);
+}
+
+.stepCard h3 {
+    margin: 45px 0 10px;
+
+    font-size: 25px;
+    letter-spacing: -1px;
+}
+
+.stepCard p {
+    max-width: 270px;
+
+    margin: 0;
+
+    color: var(--gray-700);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ================================
+   CTA
+================================ */
+
+.ctaSection {
+    width: min(1600px, calc(100% - 12vw));
+
+    margin: 40px auto 120px;
+
+    padding: 100px 40px;
+
+    display: flex;
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background: var(--black);
+    color: var(--white);
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.ctaSection::before,
+.ctaSection::after {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+}
+
+.ctaSection::before {
+    top: -150px;
+    left: -100px;
+}
+
+.ctaSection::after {
+    bottom: -160px;
+    right: -80px;
+}
+
+.ctaContent {
+    position: relative;
+    z-index: 1;
+
+    max-width: 650px;
+}
+
+.ctaContent .sectionEyebrow {
+    color: var(--gray-300);
+}
+
+.ctaContent h2 {
+    margin: 20px 0;
+
+    font-size: clamp(38px, 5vw, 58px);
+    line-height: 1;
+
+    letter-spacing: -2.5px;
+}
+
+.ctaContent h2 span {
+    display: block;
+
+    color: var(--gray-500);
+}
+
+.ctaContent p {
+    margin: 0 0 30px;
+
+    color: var(--gray-300);
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   FAQ
+================================ */
+
+.faqSection {
+    width: min(1600px, calc(100% - 12vw));
+
+    margin: 0 auto;
+
+    padding-bottom: 120px;
+}
+
+.faqSection .sectionHeading {
+    margin-bottom: 50px;
+}
+
+.faqList {
+    border-top: 1px solid var(--gray-300);
+}
+
+.faqList details {
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.faqList summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 24px 0;
+
+    list-style: none;
+
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 650;
+}
+
+.faqList summary::-webkit-details-marker {
+    display: none;
+}
+
+.faqList summary span {
+    font-size: 22px;
+    font-weight: 300;
+
+    transition: transform 200ms ease;
+}
+
+.faqList details[open] summary span {
+    transform: rotate(45deg);
+}
+
+.faqList details p {
+    max-width: 650px;
+
+    margin: -5px 0 25px;
+
+    color: var(--gray-700);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+    width: min(1600px, calc(100% - 12vw));
+
+    margin: 0 auto;
+
+    padding: 30px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--gray-300);
+
+    font-size: 11px;
+    color: var(--gray-500);
+}
+
+.footerLogo {
+    color: var(--black);
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.footerLogo span {
+    font-weight: 400;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footerLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.footerLinks a:hover {
+    color: var(--black);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+    .navLinks {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        padding-top: 70px;
+    }
+
+    .heroContent {
+        text-align: center;
+    }
+
+    .hero h1,
+    .heroDescription {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .heroActions {
+        justify-content: center;
+    }
+
+    .heroMeta {
+        justify-content: center;
+    }
+
+    .heroVisual {
+        min-height: 430px;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .stepCard {
+        border-right: 0;
+        border-bottom: 1px solid var(--gray-300);
+    }
+
+    .stepCard:last-child {
+        border-bottom: 0;
+    }
+
+    .stepCard h3 {
+        margin-top: 30px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar,
+    .hero,
+    .howSection,
+    .faqSection,
+    .footer {
+        width: min(100% - 28px, 1200px);
+    }
+
+    .navbar {
+        height: 70px;
+    }
+
+    .navActions .btnGhost {
+        display: none;
+    }
+
+    .hero {
+        padding: 65px 0 80px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2.8px;
+    }
+
+    .heroDescription {
+        font-size: 14px;
+    }
+
+    .heroActions {
+        flex-direction: column;
+    }
+
+    .heroActions .btn {
+        width: 100%;
+    }
+
+    .heroMeta {
+        gap: 12px;
+    }
+
+    .heroMeta span {
+        font-size: 9px;
+    }
+
+    .heroMeta strong {
+        font-size: 11px;
+    }
+
+    .resumeCard {
+        padding: 20px;
+
+        transform: none;
+    }
+
+    .heroVisual {
+        min-height: auto;
+    }
+
+    .howSection {
+        padding: 80px 0;
+    }
+
+    .sectionHeading h2,
+    .ctaContent h2 {
+        letter-spacing: -1.8px;
+    }
+
+    .stepCard {
+        padding: 25px 20px;
+    }
+
+    .ctaSection {
+        width: calc(100% - 28px);
+
+        margin-bottom: 80px;
+
+        padding: 75px 20px;
+
+        border-radius: 20px;
+    }
+
+    .faqSection {
+        padding-bottom: 80px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 18px;
+
+        padding: 25px 0;
+    }
+
+    .footer p {
+        order: 3;
+    }
+}
