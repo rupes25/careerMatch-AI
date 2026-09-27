@@ -1,11 +1,30 @@
 import "../../../style/Login.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthHook } from "../hooks/AuthHook";
+
 
 const Login = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    // Backend/API integration yahan aayega
-    console.log("Login submitted");
+  const navigate = useNavigate();
+
+  const [usernameOrEmail, setUsernameOrEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const { loading, handleLogin } = AuthHook();
+
+
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      await handleLogin({ usernameOrEmail, password });
+      navigate('/');
+    } catch (err) {
+      setError(err.response?.data?.message || "Unable to log in. Please try again.");
+    }
   };
 
   return (
@@ -75,6 +94,8 @@ const Login = () => {
                 placeholder="Enter your username or email"
                 autoComplete="username"
                 required
+                value={usernameOrEmail}
+                onChange={(e)=>setUsernameOrEmail(e.target.value)}
               />
             </div>
 
@@ -97,6 +118,8 @@ const Login = () => {
                 placeholder="Enter your password"
                 autoComplete="current-password"
                 required
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
               />
             </div>
 
@@ -114,11 +137,14 @@ const Login = () => {
             </div>
 
             {/* Submit */}
+            {error && <p className="formError" role="alert">{error}</p>}
+
             <button
               type="submit"
               className="loginButton"
+              disabled={loading}
             >
-              Login
+              {loading ? "Logging in..." : "Login"}
               <span>↗</span>
             </button>
           </form>

@@ -1,25 +1,30 @@
 import "../../../style/Signup.css";
-// import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { AuthHook } from "../hooks/AuthHook";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
 
-
+  const navigate = useNavigate();
 
   const [fName, setfName] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const { loading, handleRegister } = AuthHook();
 
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    await 
-
-
-    // Backend/API integration yahan aayega
-    console.log("Signup submitted");
+    setError('');
+    try {
+      await handleRegister({ fName, email, username, password });
+      navigate('/');
+    } catch (err) {
+      setError(err.response?.data?.message || "Unable to create your account. Please try again.");
+    }
   };
 
   return (
@@ -152,8 +157,10 @@ const Signup = () => {
               </label>
             </div>
 
-            <button type="submit" className="signupButton">
-              Create account
+            {error && <p className="formError" role="alert">{error}</p>}
+
+            <button type="submit" className="signupButton" disabled={loading}>
+              {loading ? "Creating account..." : "Create account"}
               <span>↗</span>
             </button>
 

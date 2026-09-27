@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 
 const tokenBlacklist = new mongoose.Schema({
-    type:String,
-    required:[true,"Token is required."]
+    token: {
+        type: String,
+        required: [true, "Token is required."],
+        unique: true,
+    },
 },
 {timestamps:true},
 )
