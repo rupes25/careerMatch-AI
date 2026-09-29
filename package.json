@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "multer": "^2.4.0",
+    "pdf-parse": "^2.4.5",
+    "puppeteer": "^25.12.0",
     "react-router-dom": "^7.18.4"
   }
 }
